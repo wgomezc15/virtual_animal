@@ -2,6 +2,52 @@
 
 Sistema de gestión para una veterinaria.
 
+
+# Notas
+
+* Crea un entorno virtual
+
+    python -m venv  env
+
+* Activa entorno virtual
+
+    env\Scripts\activate  // para windows
+    source env/bin/activate //para linux
+
+* Instala paquete django
+
+    pip install django
+
+* Crea el proyecto
+
+    django-admin startproject nombre_del_proyecto
+
+* Crea una aplicación
+
+    django-admin startapp nombre_de_la_aplicacion
+
+* Inicia la aplicación
+
+    python manage.py runserver
+
+* Instala paquete djangorestframework para crear una api rest
+
+    pip install djangorestframework
+
+* Instala paquete djangorestframework-simplejwt para autenticación con JWT
+
+    pip install djangorestframework-simplejwt
+
+* Instala paquete psycopg2 para conectar a base de datos postgresql
+   
+    pip install psycopg2
+
+* Instala paquete python-decouple para separar la configuración y claves secretas de la aplicación en un archivo .env no
+rastreado por Git.
+
+    pib install python-decouple
+
+
 # Comandos
 
 * Actualiza pip (sistema de gestión de paquetes)
@@ -47,8 +93,8 @@ Sistema de gestión para una veterinaria.
 
     https://pypi.org/project/djangorestframework-simplejwt/
 
-* psycopg
+* psycopg2
 
-    https://pypi.org/project/psycopg/
+    https://pypi.org/project/psycopg2/
 
 
