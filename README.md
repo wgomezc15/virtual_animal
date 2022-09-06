@@ -3,6 +3,20 @@
 Sistema de gestión para una veterinaria.
 
 
+# Configuración  de variables de entorno
+
+* En la carpeta del proyecto *animalProject* agregar un archivo *.en* con la siguiente estructura, reemplazar los interrogantes
+por los datos segun corresponda:
+
+    DEBUG=True
+    SECRET_KEY=???
+    DB_DRIVER=django.db.backends.postgresql_psycopg2
+    DB_HOST=???
+    DB_PORT=5432
+    DB_NAME=???
+    DB_USER=???
+    DB_PASSWORD=???
+
 # Notas
 
 * Crea un entorno virtual
