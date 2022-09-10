@@ -3,7 +3,7 @@ from api.models.typeDocument import TypeDocument
 from rest_framework import serializers
 
 #serializer es para transformar de JSON a una cuenta
-class typeDocumentSerializer(serializers.ModelSerializer):
+class TypeDocumentSerializer(serializers.ModelSerializer):
   class Meta:
     model = TypeDocument
     fields = ['id', 'code', 'name']
