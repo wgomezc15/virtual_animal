@@ -1,4 +1,3 @@
-from dataclasses import fields
 from api.models.typeDocument import TypeDocument
 from rest_framework import serializers
 
@@ -13,8 +12,8 @@ class TypeDocumentSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj): 
         typeDocument=TypeDocument.objects.get(id=obj.id)
-        return{
-            'id':typeDocument.id,
-            'code':typeDocument.code,
-            'name':typeDocument.name
-        }
+        return {
+                'id':typeDocument.id,
+                'code':typeDocument.code,
+                'name':typeDocument.name
+                }
