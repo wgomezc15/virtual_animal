@@ -1,12 +1,10 @@
 from rest_framework import serializers
 from api.models import User
-from api.models import TypeDocument
-
-
-#from authApp.serializers.accountSerializer import AccountSerializer
+from api.serializers.typeDocumentSerializer import TypeDocumentSerializer
 
 class UserSerializer(serializers.ModelSerializer):
-    typeDocument=TypeDocument()
+    
+    #typeDocument = TypeDocumentSerializer()
 
     class Meta:
         model=User
@@ -17,19 +15,22 @@ class UserSerializer(serializers.ModelSerializer):
         return userInstance
 
     def to_representation(self, obj): 
-        user=User.objects.get(id=obj.id)
-        return{
-            'id':user.id,
-            'username':user.username,
-            'password':user.password,
-            'name':user.name,
-            'lastname':user.lastname,
-            'email':user.email,
-            'typeDocument':user.typeDocument,
-            'document':user.document,
-            'telephone':user.telephone,
-            'address':user.address,
-            'gender':user.gender,
-            'isActive':user.isActive
-
-        }
+        user = User.objects.get(id=obj.id)
+        #typeDocument = TypeDocument.objects.get(id=user.typeDocument)
+        return {
+                'id':user.id,
+                'username':user.username,
+                'name':user.name,
+                'lastname':user.lastname,
+                'email':user.email,
+                'typeDocument': {
+                    "id":user.typeDocument.id,
+                    "code":user.typeDocument.code,
+                    "name":user.typeDocument.name
+                },
+                'document':user.document,
+                'telephone':user.telephone,
+                'address':user.address,
+                'gender':user.gender,
+                'isActive':user.isActive
+                }
