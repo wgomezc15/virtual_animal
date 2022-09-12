@@ -32,3 +32,11 @@ class TypeDocumentDeleteView(views.APIView):
     def get(self, request, id):
         TypeDocument.objects.filter(id=id).delete()            
         return Response(None, status=status.HTTP_200_OK)
+
+class TypeDocumentUpdateView(views.APIView):
+ 
+    def post(self, request):
+        TypeDocument.objects.filter(id=request.data["id"]).update(code=request.data["code"], name = request.data["name"])
+        return Response(None, status=status.HTTP_200_OK)
+
+
