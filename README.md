@@ -3,6 +3,79 @@
 Sistema de gestión para una veterinaria.
 
 
+
+# Peticiones a la Api
+
+
+*  CREATE
+
+http://127.0.0.1:8000/typedocument/
+
+Request
+
+```json
+    {
+        "id": 2,
+        "code": "TI",
+        "name": "TARJETA IDENTIDAD"
+    }
+```
+
+
+* GET ALL
+
+http://127.0.0.1:8000/typedocumentall/
+
+
+
+Response
+
+```json
+    [
+        {
+            "id": 1,
+            "code": "CC",
+            "name": "CEDULA"
+        },
+        {
+            "id": 2,
+            "code": "TI",
+            "name": "TARJETA IDENTIDAD"
+        },
+        {
+            "id": 3,
+            "code": "CE",
+            "name": "CEDULA EXTRANJERIA"
+        }
+    ]
+```
+
+Response 200 OK
+
+* UPDATE
+
+http://127.0.0.1:8000/typedocumentupdate/
+
+Request
+
+```json
+    {
+        "id": 12,
+        "code": "cc",
+        "name": "TARJETA ALEXXX"
+    }
+```
+
+Response 200 OK
+
+
+* DELETE
+
+http://127.0.0.1:8000/typedocumentadelete/13
+
+Response 200 OK
+
+
 # Configuración  de variables de entorno
 
 * En la carpeta del proyecto *animalProject* agregar un archivo *.en* con la siguiente estructura, reemplazar los interrogantes
