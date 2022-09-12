@@ -12,3 +12,12 @@ class TypeDocumentCreateView(views.APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()               
         return Response(None, status=status.HTTP_200_OK)
+
+
+class TypeDocumentGetView(generics.RetrieveAPIView):
+    queryset = TypeDocument.objects.all()
+    serializer_class = TypeDocumentSerializer
+   
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+
