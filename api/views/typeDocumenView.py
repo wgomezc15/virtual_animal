@@ -1,6 +1,3 @@
-
-import code
-from unicodedata import name
 from rest_framework import generics
 from rest_framework import status,views
 from django.http import JsonResponse

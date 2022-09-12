@@ -1,7 +1,3 @@
 from .userCreateView import UserCreateView
 from .userDetailView import UserDetailView
-from .typeDocumenView import TypeDocumentGetView
 from .typeDocumenView import TypeDocumentCreateView
-from .typeDocumenView import TypeDocumentGetAllView
-from .typeDocumenView import TypeDocumentDeleteView
-from .typeDocumenView import TypeDocumentUpdateView
