@@ -26,3 +26,9 @@ class TypeDocumentGetAllView(generics.RetrieveAPIView):
     def get(self,request):
         obj = list(TypeDocument.objects.values())    
         return JsonResponse(obj, safe=False)
+        
+class TypeDocumentDeleteView(views.APIView):
+ 
+    def get(self, request, id):
+        TypeDocument.objects.filter(id=id).delete()            
+        return Response(None, status=status.HTTP_200_OK)
