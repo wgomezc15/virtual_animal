@@ -21,3 +21,8 @@ class TypeDocumentGetView(generics.RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
 
+class TypeDocumentGetAllView(generics.RetrieveAPIView):
+ 
+    def get(self,request):
+        obj = list(TypeDocument.objects.values())    
+        return JsonResponse(obj, safe=False)
