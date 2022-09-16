@@ -1,5 +1,5 @@
 from django.db import models
-from .pet import Pet #esperando al modelo y clase pet
+from .pet import Pet
 
 class AnimalVaccinations(models.Model):
     id=models.AutoField(primary_key=True)

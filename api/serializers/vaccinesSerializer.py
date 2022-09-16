@@ -4,7 +4,7 @@ from dataclasses import fields
 
 class VaccinesSerializer(serializers.ModelSerializer):
     class Meta:
-        fields=['id','name','idPet']
+        fields='__all__'#incluye todos los campos id,idpet,name
 
     def create(self, validated_data):
         vaccineInstance=AnimalVaccinations.objects.create(**validated_data)
