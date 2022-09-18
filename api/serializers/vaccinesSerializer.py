@@ -1,19 +1,10 @@
 from rest_framework import serializers
-from api.models.vaccines import AnimalVaccinations
+from api.models.vaccines import Tabla_Vacunas
 from dataclasses import fields
 
 class VaccinesSerializer(serializers.ModelSerializer):
-    class Meta:
-        fields='__all__'#incluye todos los campos id,idpet,name
+    class Meta: #class meta adjunta metadatos a un conjunto de campos que componen el modelo
+        model=Tabla_Vacunas 
+        fields='__all__'#incluye todos los campos id,name
 
-    def create(self, validated_data):
-        vaccineInstance=AnimalVaccinations.objects.create(**validated_data)
-        return vaccineInstance 
-
-    def to_representation(self, obj):
-        vaccine=AnimalVaccinations.objects.get(id=obj.id)
-        return {
-            'id':vaccine.id,
-            'name':vaccine.name,
-            'idPet':vaccine.idPet
-        }
+    

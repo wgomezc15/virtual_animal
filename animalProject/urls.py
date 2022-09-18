@@ -2,6 +2,8 @@ from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 from api import views
 from api.views.typeDocumenView import typeDocument_api_view,type_document_detail_api_view
+from api.views import vaccineView
+
 
 
 urlpatterns = [
@@ -11,4 +13,15 @@ urlpatterns = [
     path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('typedocument/', typeDocument_api_view, name = 'typeDocument_api_view'),
     path('typedocument/<int:pk>', type_document_detail_api_view, name = 'type_document_detail_api_view'),
+
+    #se adiccionan Urls de la tabla vaccines por Yulany Munevar 
+    path('vaccinecreate/',vaccineView.vaccine_create_view,name='vaccine_create_view'),
+    path('vaccinegetall/',vaccineView.vaccine_getall_view,name='vaccine_getall_view'),
+    path('vaccinegetdetail/<int:pk>',vaccineView.vaccine_detail_view,name='vaccine_detail_view'),
+    path('vaccineupdate/<int:pk>',vaccineView.vaccine_update_view,name='vaccine_update_view'),
+    path('vaccinedelete/<int:pk>',vaccineView.vaccine_delete_view,name='vaccine_delete_view'),
+
+
+
+   
 ]
