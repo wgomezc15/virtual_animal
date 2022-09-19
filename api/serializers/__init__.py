@@ -1,2 +1,4 @@
+from api.serializers.EnfermedadSerializer import EnfermedadSerializer
 from .typeDocumentSerializer import TypeDocumentSerializer
 from .userSerializer import UserSerializer
+from .EnfermedadSerializer import EnfermedadSerializer
