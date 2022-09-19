@@ -34,6 +34,11 @@ urlpatterns = [
 
     path('pet/', pet_api_view, name = 'pet_api_view'),
     path('pet/<int:pk>', pet_detail_api_view, name = 'pet_detail_api_view'),
+    
+    path('userclientgetview', views.userClientView.serclientgetview, name='userClientGetView'),
+    path('userclientupdateview', views.userClientView.userclientupdateview, name='userClientUpdateView'),
+    path('userclientdeleteview', views.userClientViews.userclientdeleteview, name='userClientDeleteView'),
+    path('userclientcreateview', views.userClientView.userclientcreateview, name='userClientCreateView')
 
     path('enfermedad/', enfermedad_api_view, name = 'enfermedad_api_view'),
     path('enfermedad/<int:pk>', enfermedad_detail_api_view, name = 'enfermedad_detail_api_view'),
