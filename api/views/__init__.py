@@ -23,3 +23,9 @@ from .servicioView import servicio_create_view
 
 from .petView import pet_api_view
 from .petView import pet_detail_api_view
+
+from .enfermedadView import enfermedad_api_view
+from .enfermedadView import enfermedad_detail_api_view
+
+from .userClientView import user_cliente_api_view
+from .userClientView import user_cliente_detail_api_view
