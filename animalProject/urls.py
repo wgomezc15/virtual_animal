@@ -13,3 +13,10 @@ urlpatterns = [
     path('typedocumentadelete/<int:id>/', views.TypeDocumentDeleteView.as_view()),
     path('typedocumentupdate/', views.TypeDocumentUpdateView.as_view()),
 ]
+
+urlpatterns = [
+    path('userclientgetview', views.userClientView.serclientgetview, name='userClientGetView'),
+    path('userclientupdateview', views.userClientView.userclientupdateview, name='userClientUpdateView'),
+    path('userclientdeleteview', views.userClientViews.userclientdeleteview, name='userClientDeleteView'),
+    path('userclientcreateview', views.userClientView.userclientcreateview, name='userClientCreateView')
+]
