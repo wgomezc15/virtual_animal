@@ -21,3 +21,5 @@ from .servicioView import servicio_delete_view
 from .servicioView import servicio_create_view
 #Tabla servicio -- Insertado por Yasmin
 
+from .petView import pet_api_view
+from .petView import pet_detail_api_view

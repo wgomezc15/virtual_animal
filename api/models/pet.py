@@ -11,3 +11,5 @@ class Pet(models.Model):
     features = models.CharField('Features',max_length=30)
     isActive = models.BooleanField(default=True)
     userClient = models.ForeignKey(UserClient,related_name='PetuserClient',on_delete=models.PROTECT)
+    class Meta:
+        ordering = ['id']

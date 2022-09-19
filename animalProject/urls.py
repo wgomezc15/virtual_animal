@@ -3,7 +3,7 @@ from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshVie
 from api import views
 from api.views.typeDocumenView import typeDocument_api_view,type_document_detail_api_view
 from api.views import vaccineView
-
+from api.views.petView import pet_api_view,pet_detail_api_view
 
 
 urlpatterns = [
@@ -29,5 +29,8 @@ urlpatterns = [
     path('serviciodelete/<int:pk>', views.servicioView.servicio_delete_view, name = 'servicio_delete_view'),
     path('serviciocreate/', views.servicioView.servicio_create_view, name = 'servicio_create_view' ),
     #Tabla servicio -- Insertado por Yasmin
+
+    path('pet/', pet_api_view, name = 'pet_api_view'),
+    path('pet/<int:pk>', pet_detail_api_view, name = 'pet_detail_api_view'),
 
 ]
