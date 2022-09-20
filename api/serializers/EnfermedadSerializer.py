@@ -3,5 +3,7 @@ from api.models import Enfermedad
 
 class EnfermedadSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Enfermedad
-        fields=['id','name']
+        model=tabla_Enfermedad
+        fields='__all__'
+    
+

@@ -2,20 +2,18 @@ from email.policy import HTTP
 from rest_framework import status
 from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
-from api.models.enfermedad import Enfermedad
-from api.serializers.enfermedadSerializer import EnfermedadSerializer
-from rest_framework.permissions import IsAuthenticated
 
-@api_view(['GET', 'POST'])
-#@permission_classes([IsAuthenticated])
-def enfermedad_api_view(request):
+from api.models.Enfermedad import tabla_Enfermedad
+from api.serializers.EnfermedadSerializer import EnfermedadSerializer
 
+@api_view(['GET','POST'])
+def enfermedad_create_view(request,pk=None):
     if request.method == 'GET':
-        enfermedad = Enfermedad.objects.all()
-        if enfermedad:
-            serializer = EnfermedadSerializer(enfermedad, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response({'message': 'No se han encontrado enfermedades'},status=status.HTTP_404_NOT_FOUND)
+        Enfermedad = tabla_Enfermedad.objects.all()
+        serializer = EnfermedadSerializer(Enfermedad, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        
+
 
     elif request.method == 'POST':
         serializer = EnfermedadSerializer(data=request.data)
@@ -25,25 +23,53 @@ def enfermedad_api_view(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
-#@permission_classes([IsAuthenticated])
-def enfermedad_detail_api_view(request, pk= None):
+#Metodo para obtener toda la informacion de toda la tabla
+@api_view(['GET'])
+def enfermedad_getall_view(request,pk=None):
+    if request.method == 'GET':
+        Enfermedad= tabla_Enfermedad.objects.all()
+        serializer = EnfermedadSerializer(Enfermedad, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    enfermedad = Enfermedad.objects.filter(id = pk).first()
-    if enfermedad == None:
-        return Response({'message': 'No se ha encontrado la enfermedad'},status=status.HTTP_404_NOT_FOUND)
+@api_view(['GET'])# obtener un registro detallado
+def enfermedad_detail_view(requests, pk=None):
+
+    if requests.method == 'GET':
+        Enfermedad =  tabla_Enfermedad.objects.filter(id=pk).first()
+        enfermedad_Serializer = EnfermedadSerializer(Enfermedad)
+        return Response(enfermedad_Serializer.data)
+
+
+@api_view(['GET', 'PUT'])#actualizar
+def enfermedad_update_view(request, pk= None):
+
+    Enfermedad = tabla_Enfermedad.objects.filter(id = pk).first()
+    if Enfermedad == None:
+        return Response({'message': 'No se ha encontrado enfermedad'},status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = EnfermedadSerializer(enfermedad)
+        serializer = EnfermedadSerializer(Enfermedad)
         return Response(serializer.data,status=status.HTTP_200_OK)
 
     elif request.method == 'PUT':
-        serializer = EnfermedadSerializer(enfermedad, data=request.data)
+        serializer = EnfermedadSerializer(Enfermedad, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data,status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET', 'DELETE'])#borrar
+def enfermedad_delete_view(request, pk= None):
+
+    Enfermedad = tabla_Enfermedad.objects.filter(id = pk).first()
+    if Enfermedad == None:
+        return Response({'message': 'No se ha encontrado Enfermedad'},status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = EnfermedadSerializer(Enfermedad)
+        return Response(serializer.data,status=status.HTTP_200_OK)
+
     elif request.method == 'DELETE':
-        enfermedad.delete()
-        return Response({'message': 'La enfemedad fue eliminada'},status=status.HTTP_200_OK)
+        Enfermedad.delete()
+        return Response('Eliminado')
+
