@@ -9,7 +9,7 @@ from api.views.petView import pet_api_view,pet_detail_api_view
 from api.views.petView import pet_api_view,pet_detail_api_view
 from api.views.userClientView import user_cliente_api_view,user_cliente_detail_api_view
 
- main
+
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),

@@ -6,6 +6,6 @@ from .user import User
 
 from .servicio import Tabla_Servicio
 from .pet import Pet
-from .enfermedad import Enfermedad
+from .Enfermedad import Enfermedad
 from .userClient import UserClient
-
+from .vaccines import Tabla_Vacunas
