@@ -12,3 +12,5 @@ class UserClient(models.Model):
     address = models.CharField('Address',max_length=100)
     gender = models.CharField('Gender',max_length=1)
     isActive = models.BooleanField(default=True)
+    class Meta:
+        ordering = ['id']
