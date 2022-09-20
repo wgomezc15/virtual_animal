@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('api', '0002_alter_typedocument_name_alter_user_password_and_more'),
+        ('api', '0002_alter_typedocument_options_alter_typedocument_code_and_more'),
     ]
 
     operations = [
