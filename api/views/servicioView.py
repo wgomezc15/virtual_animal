@@ -9,11 +9,12 @@ from rest_framework.response import Response
 from api.models.servicio import Tabla_Servicio
 from api.serializers.servicioSerializer import servicioSerializer
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
-
+from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 #Función para obtener información de todos los registros
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def servicio_getall_view(request, pk=None):
     if request.method == 'GET':
             servicio_serializer = Tabla_Servicio.objects.all()
@@ -22,6 +23,7 @@ def servicio_getall_view(request, pk=None):
 
 #Función para obtener información de un registro detallado
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def servicio_detail_view(requests, pk=None):
 
     if requests.method == 'GET':
@@ -31,6 +33,7 @@ def servicio_detail_view(requests, pk=None):
     
 #Función para obtener información de un registro detallado y permite modificarlo
 @api_view(['GET', 'PUT'])
+@permission_classes([IsAuthenticated])
 def servicio_update_view(requests, pk=None):
 
     if requests.method == 'GET':
@@ -48,6 +51,7 @@ def servicio_update_view(requests, pk=None):
 
 #Función para obtener información de un registro detallado y eliminarlo
 @api_view(['GET','DELETE'])
+@permission_classes([IsAuthenticated])
 def servicio_delete_view(requests, pk=None):
 
     if requests.method == 'GET':
@@ -62,6 +66,7 @@ def servicio_delete_view(requests, pk=None):
 
 #Función para obtener información de toda la tabla y permite adicionar un nuevo registro
 @api_view(['GET','POST'])
+@permission_classes([IsAuthenticated])
 def servicio_create_view(request, pk=None):
     if request.method == 'GET':
             servicio_serializer = Tabla_Servicio.objects.all()

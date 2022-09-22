@@ -7,7 +7,7 @@ from api.serializers.enfermedadSerializer import EnfermedadSerializer
 from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET', 'POST'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def enfermedad_api_view(request):
 
     if request.method == 'GET':
@@ -26,7 +26,7 @@ def enfermedad_api_view(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def enfermedad_detail_api_view(request, pk= None):
 
     enfermedad = Enfermedad.objects.filter(id = pk).first()

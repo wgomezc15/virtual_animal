@@ -4,9 +4,11 @@ from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
 from api.models.vaccines import Tabla_Vacunas
 from api.serializers.vaccinesSerializer import VaccinesSerializer
+from rest_framework.permissions import IsAuthenticated
 
 #Este metodo permite realizar la insercion de una nueva vacuna
 @api_view(['GET','POST'])
+@permission_classes([IsAuthenticated])
 def vaccine_create_view(request,pk=None):
     if request.method == 'GET':
         vaccine = Tabla_Vacunas.objects.all()
@@ -23,6 +25,7 @@ def vaccine_create_view(request,pk=None):
 
 #Metodo para obtener toda la informacion de toda la tabla
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def vaccine_getall_view(request,pk=None):
     if request.method == 'GET':
         vaccine = Tabla_Vacunas.objects.all()
@@ -30,6 +33,7 @@ def vaccine_getall_view(request,pk=None):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])# obtener un registro detallado
+@permission_classes([IsAuthenticated])
 def vaccine_detail_view(requests, pk=None):
 
     if requests.method == 'GET':
@@ -39,6 +43,7 @@ def vaccine_detail_view(requests, pk=None):
 
 
 @api_view(['GET', 'PUT'])#actualizar
+@permission_classes([IsAuthenticated])
 def vaccine_update_view(request, pk= None):
 
     vaccine = Tabla_Vacunas.objects.filter(id = pk).first()
@@ -57,6 +62,7 @@ def vaccine_update_view(request, pk= None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'DELETE'])#borrar
+@permission_classes([IsAuthenticated])
 def vaccine_delete_view(request, pk= None):
 
     vaccine = Tabla_Vacunas.objects.filter(id = pk).first()

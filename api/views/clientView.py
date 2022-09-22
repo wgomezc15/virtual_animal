@@ -7,7 +7,7 @@ from api.serializers.clientSerializer import ClientSerializer
 from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET', 'POST'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def client_api_view(request):
 
     if request.method == 'GET':
@@ -26,7 +26,7 @@ def client_api_view(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def client_detail_api_view(request, pk= None):
 
     client = Client.objects.filter(id = pk).first()

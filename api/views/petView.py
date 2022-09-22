@@ -7,7 +7,7 @@ from api.serializers.petSerializer import PetSerializer
 from rest_framework.permissions import IsAuthenticated
 
 @api_view(['GET', 'POST'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def pet_api_view(request):
 
     if request.method == 'GET':
@@ -26,7 +26,7 @@ def pet_api_view(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def pet_detail_api_view(request, pk= None):
 
     pet = Pet.objects.filter(id = pk).first()

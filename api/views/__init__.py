@@ -29,4 +29,4 @@ from .clientView import client_api_view
 from .clientView import client_detail_api_view
 
 from .clientOwnerView import client_owner_api_view
-from .clientOwnerView import client_owner_detail_api_view
+from .clientOwnerView import client_owner_api_view

@@ -39,9 +39,10 @@ urlpatterns = [
     path('enfermedad/', enfermedad_api_view, name = 'enfermedad_api_view'),
     path('enfermedad/<int:pk>', enfermedad_detail_api_view, name = 'enfermedad_detail_api_view'),
 
+#no funciona
     path('client/', client_api_view, name = 'client_api_view'),
     path('client/<int:pk>', client_detail_api_view, name = 'client_detail_api_view'),
-
+#
     path('clientowner/', client_owner_api_view, name = 'client_owner_api_view'),
     path('clientowner/<int:pk>', client_owner_detail_api_view, name = 'client_owner_detail_api_view'),
 ]
