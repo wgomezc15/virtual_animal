@@ -5,4 +5,5 @@ from .vaccinesSerializer import VaccinesSerializer
 from .servicioSerializer import servicioSerializer
 from .petSerializer import PetSerializer
 from .enfermedadSerializer import EnfermedadSerializer
-from .userClienteSerializer import UserClienteSerializer
+from .clientSerializer import ClientSerializer
+from .clientOwnerSerializer import ClientOwnerSerializer

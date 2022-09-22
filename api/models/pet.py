@@ -1,5 +1,5 @@
 from django.db import models
-from .userClient import UserClient
+from .client import Client
  
 class Pet(models.Model):
     id = models.AutoField(primary_key=True)
@@ -9,7 +9,7 @@ class Pet(models.Model):
     sex = models.CharField('Sex',max_length=1)
     species = models.CharField('Species',max_length=30)
     features = models.CharField('Features',max_length=30)
-    isActive = models.BooleanField(default=True)
-    userClient = models.ForeignKey(UserClient,related_name='PetuserClient',on_delete=models.PROTECT)
+    isactive = models.BooleanField(default=True)
+    client = models.ForeignKey(Client,related_name='petclient',on_delete=models.PROTECT)
     class Meta:
         ordering = ['id']

@@ -1,7 +1,5 @@
 from .userCreateView import UserCreateView
 from .userDetailView import UserDetailView
-from .userCreateView import UserCreateView
-from .userDetailView import UserDetailView
 
 from .typeDocumenView import typeDocument_api_view
 from .typeDocumenView import type_document_detail_api_view
@@ -27,5 +25,8 @@ from .petView import pet_detail_api_view
 from .enfermedadView import enfermedad_api_view
 from .enfermedadView import enfermedad_detail_api_view
 
-from .userClientView import user_cliente_api_view
-from .userClientView import user_cliente_detail_api_view
+from .clientView import client_api_view
+from .clientView import client_detail_api_view
+
+from .clientOwnerView import client_owner_api_view
+from .clientOwnerView import client_owner_detail_api_view
