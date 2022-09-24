@@ -2,9 +2,10 @@ from django.urls import path
 from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
 from api import views
 from api.views.typeDocumenView import typeDocument_api_view,type_document_detail_api_view
+
+from api.views import enfermedadView
 from api.views import vaccineView
 from api.views.petView import pet_api_view,pet_detail_api_view
-from api.views.enfermedadView import enfermedad_api_view,enfermedad_detail_api_view
 from api.views.petView import pet_api_view,pet_detail_api_view
 from api.views.clientView import client_api_view,client_detail_api_view
 from api.views.clientOwnerView import client_owner_api_view,client_owner_detail_api_view
@@ -17,6 +18,15 @@ urlpatterns = [
 
     path('typedocument/', typeDocument_api_view, name = 'typeDocument_api_view'),
     path('typedocument/<int:pk>', type_document_detail_api_view, name = 'type_document_detail_api_view'),
+ 
+    #path('enfermedad/', enfermedad_api_view, name = 'enfermedad_api_view'),
+    #path('enfermedad/<int:pk>', enfermedad_detail_api_view, name = 'enfermedad_detail_api_view'),
+    
+    path('CreacionEnfermedad/',enfermedadView.enfermedad_create_view,name='enfermedad_create_view'),
+    path('enfermedadesnegetall/',enfermedadView.enfermedad_getall_view,name='enfermedad_getall_view'),
+    path('enfermedadgetdetail/<int:pk>',enfermedadView.enfermedad_detail_view,name='enfermedad_detail_view'),
+    path('enfermedadupdate/<int:pk>',enfermedadView.enfermedad_update_view,name='enfermedad_update_view'),
+    path('enfermedaddelete/<int:pk>',enfermedadView.enfermedad_delete_view,name='enfermedad_delete_view'),
 
     #se adiccionan Urls de la tabla vaccines por Yulany Munevar 
     path('vaccinecreate/',vaccineView.vaccine_create_view,name='vaccine_create_view'),
@@ -31,18 +41,14 @@ urlpatterns = [
     path('servicioupdate/<int:pk>', views.servicioView.servicio_update_view, name = 'servicio_update_view'),
     path('serviciodelete/<int:pk>', views.servicioView.servicio_delete_view, name = 'servicio_delete_view'),
     path('serviciocreate/', views.servicioView.servicio_create_view, name = 'servicio_create_view' ),
-    #Tabla servicio -- Insertado por Yasmin
 
     path('pet/', pet_api_view, name = 'pet_api_view'),
     path('pet/<int:pk>', pet_detail_api_view, name = 'pet_detail_api_view'),
     
-    path('enfermedad/', enfermedad_api_view, name = 'enfermedad_api_view'),
-    path('enfermedad/<int:pk>', enfermedad_detail_api_view, name = 'enfermedad_detail_api_view'),
-
 #no funciona
-    path('client/', client_api_view, name = 'client_api_view'),
-    path('client/<int:pk>', client_detail_api_view, name = 'client_detail_api_view'),
-#
-    path('clientowner/', client_owner_api_view, name = 'client_owner_api_view'),
-    path('clientowner/<int:pk>', client_owner_detail_api_view, name = 'client_owner_detail_api_view'),
+#    path('client/', client_api_view, name = 'client_api_view'),
+#    path('client/<int:pk>', client_detail_api_view, name = 'client_detail_api_view'),
+
+    path('client/', client_owner_api_view, name = 'client_owner_api_view'),
+    path('client/<int:pk>', client_owner_detail_api_view, name = 'client_owner_detail_api_view'),
 ]

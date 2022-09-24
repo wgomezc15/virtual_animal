@@ -4,6 +4,12 @@ from .userDetailView import UserDetailView
 from .typeDocumenView import typeDocument_api_view
 from .typeDocumenView import type_document_detail_api_view
 
+from .enfermedadView import enfermedad_create_view
+from .enfermedadView import enfermedad_getall_view
+from .enfermedadView import enfermedad_detail_view
+from .enfermedadView import enfermedad_update_view
+from .enfermedadView import enfermedad_delete_view
+
 #se importan librerias del archivo vaccineView
 from .vaccineView import vaccine_create_view
 from .vaccineView import vaccine_getall_view
@@ -21,9 +27,6 @@ from .servicioView import servicio_create_view
 
 from .petView import pet_api_view
 from .petView import pet_detail_api_view
-
-from .enfermedadView import enfermedad_api_view
-from .enfermedadView import enfermedad_detail_api_view
 
 from .clientView import client_api_view
 from .clientView import client_detail_api_view
