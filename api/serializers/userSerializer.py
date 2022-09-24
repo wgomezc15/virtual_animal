@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model=User
-        fields=['id','username','password','name','lastname','email','typeDocument','document','telephone','address','gender','isActive']
+        fields=['id','username','password','name','lastname','email','typedocument','document','telephone','address','gender','isactive']
     
     def create(self, validated_data): 
         userInstance=User.objects.create(**validated_data)
@@ -23,7 +23,7 @@ class UserSerializer(serializers.ModelSerializer):
                 'name':user.name,
                 'lastname':user.lastname,
                 'email':user.email,
-                'typeDocument': {
+                'typedocument': {
                     "id":user.typeDocument.id,
                     "code":user.typeDocument.code,
                     "name":user.typeDocument.name
@@ -32,5 +32,5 @@ class UserSerializer(serializers.ModelSerializer):
                 'telephone':user.telephone,
                 'address':user.address,
                 'gender':user.gender,
-                'isActive':user.isActive
+                'isactive':user.isActive
                 }
