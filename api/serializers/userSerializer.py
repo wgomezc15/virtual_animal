@@ -4,8 +4,8 @@ from api.serializers.typeDocumentSerializer import TypeDocumentSerializer
 
 class UserSerializer(serializers.ModelSerializer):
     
-    #typeDocument = TypeDocumentSerializer()
-
+    typedocument = TypeDocumentSerializer(many=False, read_only=True)
+    
     class Meta:
         model=User
         fields=['id','username','password','name','lastname','email','typedocument','document','telephone','address','gender','isactive']
@@ -16,7 +16,6 @@ class UserSerializer(serializers.ModelSerializer):
 
     def to_representation(self, obj): 
         user = User.objects.get(id=obj.id)
-        #typeDocument = TypeDocument.objects.get(id=user.typeDocument)
         return {
                 'id':user.id,
                 'username':user.username,
@@ -24,13 +23,13 @@ class UserSerializer(serializers.ModelSerializer):
                 'lastname':user.lastname,
                 'email':user.email,
                 'typedocument': {
-                    "id":user.typeDocument.id,
-                    "code":user.typeDocument.code,
-                    "name":user.typeDocument.name
+                    "id":user.typedocument.id,
+                    "code":user.typedocument.code,
+                    "name":user.typedocument.name
                 },
                 'document':user.document,
                 'telephone':user.telephone,
                 'address':user.address,
                 'gender':user.gender,
-                'isactive':user.isActive
+                'isactive':user.isactive
                 }
