@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    'corsheaders',
+    
 ]
 
 MIDDLEWARE = [
@@ -41,7 +43,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+#Se adicionan rutas CORS
+CORS_ORIGIN_WHITELIST=(    
+    "http://localhost:8080",
+    "https://virtual-animal-api.herokuapp.com",
+    "http://127.0.0.1.8000"
+    )
+
+
 
 AUTH_USER_MODEL = 'api.User'
 
