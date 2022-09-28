@@ -1,10 +1,7 @@
 from rest_framework import serializers
 from api.models import User
-from api.serializers.typeDocumentSerializer import TypeDocumentSerializer
 
 class UserSerializer(serializers.ModelSerializer):
-    
-    typedocument = TypeDocumentSerializer(many=False, read_only=True)
     
     class Meta:
         model=User
