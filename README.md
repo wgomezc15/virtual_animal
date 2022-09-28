@@ -61,6 +61,56 @@ Request POS
     }
 ```
 
+*  CREATE PET
+
+http://127.0.0.1:8000/pet/
+
+Request POS
+
+```json
+    {
+        "name": "Ruffo",
+        "age": "7",
+        "race": "gato malo",
+        "sex": "M",
+        "species": "gato",
+        "features": "blanco con manchas negras",
+        "isactive": true,
+        "client": 10
+    }
+```
+
+*  CREATE PETVACCINE
+
+http://127.0.0.1:8000/petvaccine/
+
+Request POS
+
+```json
+    {
+        "pet":1,
+        "vaccine":1,
+        "fecha":"2022-09-27"
+    }
+```
+
+*  CREATE CONSULTA MEDICA
+
+http://127.0.0.1:8000/consulta/
+
+Request POS
+
+```json
+    {
+        "motivo":"no come desde hace 2 días",
+        "fecha":"2022-09-27",
+        "peso":7.5,
+        "ritmocardiaco": 150,
+        "pet":1,
+        "isactive": true
+    }
+```
+
 
 # Configuración  de variables de entorno
 
@@ -169,5 +219,3 @@ rastreado por Git.
 * psycopg2
 
     https://pypi.org/project/psycopg2/
-
-
