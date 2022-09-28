@@ -94,7 +94,7 @@ Request POS
     }
 ```
 
-*  CREATE CONSULTA
+*  CREATE CONSULTA MEDICA
 
 http://127.0.0.1:8000/consulta/
 
