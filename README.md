@@ -6,74 +6,110 @@ Sistema de gestión para una veterinaria.
 
 # Peticiones a la Api
 
+*  CREATE USER
 
-*  CREATE
+http://127.0.0.1:8000/user/
 
-http://127.0.0.1:8000/typedocument/
-
-Request
-
-```json
-    {
-        "id": 2,
-        "code": "TI",
-        "name": "TARJETA IDENTIDAD"
-    }
-```
-
-
-* GET ALL
-
-http://127.0.0.1:8000/typedocumentall/
-
-
-
-Response
-
-```json
-    [
-        {
-            "id": 1,
-            "code": "CC",
-            "name": "CEDULA"
-        },
-        {
-            "id": 2,
-            "code": "TI",
-            "name": "TARJETA IDENTIDAD"
-        },
-        {
-            "id": 3,
-            "code": "CE",
-            "name": "CEDULA EXTRANJERIA"
-        }
-    ]
-```
-
-Response 200 OK
-
-* UPDATE
-
-http://127.0.0.1:8000/typedocumentupdate/
-
-Request
+Request POST
 
 ```json
     {
-        "id": 12,
-        "code": "cc",
-        "name": "TARJETA ALEXXX"
+        "username": "Alex",
+        "password": "nomelase",
+        "name": "Alexander",
+        "lastname": "nomelase",
+        "email": "alex@gmail.com",
+        "typedocument": 1,
+        "document": "1069583417",
+        "telephone": "3118541236",
+        "address": "Calle 183 #47 - 96",
+        "gender": "M",
+        "isactive": true
     }
 ```
 
-Response 200 OK
+*  LOGIN USER
 
+http://127.0.0.1:8000/login/
 
-* DELETE
+Request POST
 
-http://127.0.0.1:8000/typedocumentadelete/13
+```json
+    {
+        "username": "Alex",
+        "password": "nomelase"
+    }
+```
 
-Response 200 OK
+*  CREATE CLIENT
+
+http://127.0.0.1:8000/client/
+
+Request POS
+
+```json
+    {
+        "name": "Josefina",
+        "lastname": "Mesa",
+        "email": "josefa@gmail.com",
+        "document": "10256314",
+        "typedocument": 2,
+        "telephone": "3152542514",
+        "address": "cll 25 #25-44",
+        "gender": "F",
+        "isactive": true
+    }
+```
+
+*  CREATE PET
+
+http://127.0.0.1:8000/pet/
+
+Request POS
+
+```json
+    {
+        "name": "Ruffo",
+        "age": "7",
+        "race": "gato malo",
+        "sex": "M",
+        "species": "gato",
+        "features": "blanco con manchas negras",
+        "isactive": true,
+        "client": 10
+    }
+```
+
+*  CREATE PETVACCINE
+
+http://127.0.0.1:8000/petvaccine/
+
+Request POS
+
+```json
+    {
+        "pet":1,
+        "vaccine":1,
+        "fecha":"2022-09-27"
+    }
+```
+
+*  CREATE CONSULTA
+
+http://127.0.0.1:8000/consulta/
+
+Request POS
+
+```json
+    {
+        "motivo":"no come desde hace 2 días",
+        "fecha":"2022-09-27",
+        "peso":7.5,
+        "ritmocardiaco": 150,
+        "pet":1,
+        "isactive": true
+    }
+```
 
 
 # Configuración  de variables de entorno
@@ -183,5 +219,3 @@ rastreado por Git.
 * psycopg2
 
     https://pypi.org/project/psycopg2/
-
-

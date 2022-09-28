@@ -7,8 +7,9 @@ from api.views import enfermedadView
 from api.views import vaccineView
 from api.views.petView import pet_api_view,pet_detail_api_view
 from api.views.petView import pet_api_view,pet_detail_api_view
-from api.views.clientView import client_api_view,client_detail_api_view
 from api.views.clientOwnerView import client_owner_api_view,client_owner_detail_api_view
+from api.views.petVaccineView import pet_vaccine_api_view,pet_vaccine_detail_api_view
+from api.views.consultaMedicaView import consulta_api_view,consulta_detail_api_view
 
 urlpatterns = [
     path('login/', TokenObtainPairView.as_view()),
@@ -44,11 +45,13 @@ urlpatterns = [
 
     path('pet/', pet_api_view, name = 'pet_api_view'),
     path('pet/<int:pk>', pet_detail_api_view, name = 'pet_detail_api_view'),
-    
-#no funciona
-#    path('client/', client_api_view, name = 'client_api_view'),
-#    path('client/<int:pk>', client_detail_api_view, name = 'client_detail_api_view'),
 
+    path('petvaccine/', pet_vaccine_api_view, name = 'pet_vaccine_api_view'),
+    path('petvaccine/<int:pk>', pet_vaccine_detail_api_view, name = 'pet_vaccine_detail_api_view'),
+    
     path('client/', client_owner_api_view, name = 'client_owner_api_view'),
     path('client/<int:pk>', client_owner_detail_api_view, name = 'client_owner_detail_api_view'),
+
+    path('consulta/', consulta_api_view, name = 'consulta_api_view'),
+    path('consulta/<int:pk>', consulta_detail_api_view, name = 'consulta_detail_api_view'),
 ]

@@ -2,10 +2,10 @@
 from api.serializers.EnfermedadSerializer import EnfermedadSerializer
 from .typeDocumentSerializer import TypeDocumentSerializer
 from .userSerializer import UserSerializer
-
 from .EnfermedadSerializer import EnfermedadSerializer
 from .vaccinesSerializer import VaccinesSerializer
 from .servicioSerializer import servicioSerializer
 from .petSerializer import PetSerializer
-from .clientSerializer import ClientSerializer
 from .clientOwnerSerializer import ClientOwnerSerializer
+from .petVaccineSerializer import PetVaccineSerializer
+from .consultaMedicaSerializer import ConsultaMedicaSerializer

@@ -28,8 +28,8 @@ from .servicioView import servicio_create_view
 from .petView import pet_api_view
 from .petView import pet_detail_api_view
 
-from .clientView import client_api_view
-from .clientView import client_detail_api_view
+from .clientOwnerView import client_owner_api_view
+from .clientOwnerView import client_owner_api_view
 
-from .clientOwnerView import client_owner_api_view
-from .clientOwnerView import client_owner_api_view
+from .consultaMedicaView import consulta_api_view
+from .consultaMedicaView import consulta_detail_api_view
